@@ -1,0 +1,22 @@
+{
+  "dummyNamespace": {
+    "medium": "medium is great!"
+  },
+  "common":{},
+  "feature":{
+    "login":{
+      "WELCOME":"Welcome !"
+    }
+  },
+  "form":{},
+  "language":{
+    "EN":"English",
+    "FI":"Finnish",
+    "NO":"Norwegian"
+  },
+  "ui":{
+    "button":{
+      "GET_STARTED":"Get Started"
+    }
+  }
+}
