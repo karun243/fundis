@@ -14,6 +14,7 @@ const variants = {
   B2B: "B2B",
   C1: "C1",
   C1B: "C1B",
+  D1B: "D1B",
 } as const;
 
 const variantClasses = {
@@ -29,6 +30,7 @@ const variantClasses = {
   B2B: "text-B2B",
   C1: "text-C1",
   C1B: "text-C1B",
+  D1B: "text-D1B",
 } as const;
 
 export type TypographyVariantTypes = keyof typeof variants;
@@ -36,7 +38,7 @@ export type TypographyVariantTypes = keyof typeof variants;
 type TypographyProps = {
   children: string | React.ReactNode;
   variant: TypographyVariantTypes;
-  classname?: string;
+  classname?: string; // for other styles like textcolor
 };
 
 const Typography = (props: TypographyProps) => {
