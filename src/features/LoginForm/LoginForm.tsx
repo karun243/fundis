@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import Typography from "../../components/Typography/Typography";
+import Typography from "../../components/Typography";
 import { useTranslation } from "react-i18next";
 
 const LoginForm = () => {

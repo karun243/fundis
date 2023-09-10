@@ -123,6 +123,13 @@ module.exports = {
           "warning-base": "#FED782",
           "warning-dark": "#533C09",
         },
+        line: {
+          default: "#BABEBF",
+        },
+        icon: {
+          default: "#3E3D4B",
+          disabled: "#A3A3A9",
+        },
       },
     },
   },

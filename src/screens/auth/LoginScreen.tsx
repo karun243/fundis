@@ -1,7 +1,7 @@
 import { View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-import Button from "../../components/Button/Button";
+// import Button from "../../components/Button/Button";
 import { useTranslation } from "react-i18next";
 import GlobeIcon from "../../assets/icons/globe";
 import LoginForm from "../../features/LoginForm/LoginForm";
@@ -26,7 +26,7 @@ const LoginScreen = () => {
 
       {/* Language_Button */}
       <View className="absolute right-4 top-12">
-        <Button
+        {/* <Button
           style="bg-main-light_hover rounded-full px-[10px]"
           textStyle="py-[7px] ml-2"
           onPress={handlePress}
@@ -34,7 +34,7 @@ const LoginScreen = () => {
           iconPosition="front"
         >
           {t("language.EN")}
-        </Button>
+        </Button> */}
       </View>
       <StatusBar style="light" />
     </View>

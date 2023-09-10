@@ -1,29 +1,26 @@
-import { Pressable } from "react-native";
-import Typography, { TypographyVariantTypes } from "../Typography/Typography";
-import { useState } from "react";
-import { ButtonColorType } from "./Button";
+// The TextButton components will accept the following props:
+// 1. children : the text
+// 2. className : tailwindcss classname string for additional styling of the text(except the font size, font weight, and line height)
+// 3. onPress : onPress handler
+// 4. state : state of the button => active <default> | disabled | loading
+// 5. textVariant : string for defining the font size, font weight, and line height styling.
+// Note: if the button is not active, opacity is 40% and because we are using TouchableOpacity, the onPressIn and onPressOut animations are from the TouchableOpacity.
 
-type TextButtonProps = {
-  children: string;
-  variant: TypographyVariantTypes;
-  color: ButtonColorType;
-  //   onPress: () => void;
-};
+import { TouchableOpacity } from "react-native";
+import Typography from "../Typography";
+import clsx from "clsx";
+import { TextButtonProps } from "./types";
 
 const TextButton = (props: TextButtonProps) => {
-  const [pressed, setPressed] = useState(false);
-  const { children, color, variant } = props;
-
+  const { children, className, onPress, state = "active", textVariant } = props;
+  const disabled = state !== "active";
+  const btnStyle = clsx(className, disabled && "opacity-40");
   return (
-    <Pressable
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
-      className={`${pressed && "opacity-50"} transition-opacity`}
-    >
-      <Typography variant={variant} classname={`text-${color}`}>
+    <TouchableOpacity onPress={onPress} disabled={disabled}>
+      <Typography variant={textVariant} className={btnStyle}>
         {children}
       </Typography>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 export default TextButton;
