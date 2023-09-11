@@ -35,6 +35,9 @@ export const getButtonColorStyle = (bgColor: ButtonColorType) => {
                 defaultTextColor: "",
                 pressedTextColor: "",
                 disabledTextColor: "",
+                defaultIconColor: "",
+                pressedIconColor: "",
+                disabledIconColor: "",
             };
         case "main-normal":
             return {
@@ -44,6 +47,9 @@ export const getButtonColorStyle = (bgColor: ButtonColorType) => {
                 defaultTextColor: "text-main-light-hover",
                 pressedTextColor: "text-main-light-hover",
                 disabledTextColor: "text-main-normal",
+                defaultIconColor: "",
+                pressedIconColor: "",
+                disabledIconColor: "",
             };
         case "main-normal-hover":
             return {
@@ -53,6 +59,9 @@ export const getButtonColorStyle = (bgColor: ButtonColorType) => {
                 defaultTextColor: "",
                 pressedTextColor: "",
                 disabledTextColor: "",
+                defaultIconColor: "",
+                pressedIconColor: "",
+                disabledIconColor: "",
             };
         case "state-error-base":
             return {
@@ -62,14 +71,21 @@ export const getButtonColorStyle = (bgColor: ButtonColorType) => {
                 defaultTextColor: "",
                 pressedTextColor: "",
                 disabledTextColor: "",
+                defaultIconColor: "",
+                pressedIconColor: "",
+                disabledIconColor: "",
             };
-        default: return {
-            defaultBgColor: " ",
-            pressedBgColor: "",
-            disabledBgColor: "",
-            defaultTextColor: "",
-            pressedTextColor: "",
-            disabledTextColor: "",
-        };
+        default:
+            return {
+                defaultBgColor: " ",
+                pressedBgColor: "",
+                disabledBgColor: "",
+                defaultTextColor: "",
+                pressedTextColor: "",
+                disabledTextColor: "",
+                defaultIconColor: "",
+                pressedIconColor: "",
+                disabledIconColor: "",
+            };
     }
 };

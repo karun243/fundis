@@ -1,4 +1,4 @@
-import { Pressable, Text } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { SolidButtonProps } from "./types";
 import Typography from "../Typography";
 import clsx from "clsx";
@@ -50,6 +50,7 @@ const SolidButton = (props: SolidButtonProps) => {
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
     >
+      {icon && <View className="mr-4">{icon}</View>}
       {typeof children === "string" && (
         <Typography className={textStyle} variant={textVariant}>
           {children}
