@@ -6,7 +6,8 @@
   "feature":{
     "login":{
       "WELCOME":"Welcome !"
-    }
+    } 
+   
   },
   "form":{},
   "language":{
@@ -16,7 +17,8 @@
   },
   "ui":{
     "button":{
-      "GET_STARTED":"Get Started"
+      "GET_STARTED":"Get Started",
+      "LOGIN":"Login"
     }
   }
 }

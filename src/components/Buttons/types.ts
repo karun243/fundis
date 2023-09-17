@@ -8,11 +8,12 @@ export type ButtonColorType =
     | "main-normal-hover"
     | "main-light-hover"
     | "main-light"
-    | "state-error-base";
+    | "state-error-base"
+    | "white";
 
 export type TextButtonProps = {
     children: string;
-    className?: string;
+    classname?: string;
     onPress: () => void;
     state: ButtonStateType;
     textVariant: TypographyVariantType;
@@ -22,7 +23,7 @@ export type OutlinedButtonProps = {
     borderColor: keyof typeof cs;
     borderRadius: BorderRadiusType;
     children: string;
-    className?: string;
+    classname?: string;
     icon?: React.ReactNode;
     onPress: () => void;
     state: ButtonStateType;
@@ -34,11 +35,11 @@ export type SolidButtonProps = {
     bgColor: ButtonColorType;
     borderRadius: BorderRadiusType;
     children: string | React.ReactNode;
-    className?: string;
+    classname?: string;
     fullWidth?: boolean;
     icon?: React.ReactNode;
     onPress: () => void;
-    state: ButtonStateType;
+    state?: ButtonStateType;
     textClassName?: string;
     textVariant: TypographyVariantType;
 }

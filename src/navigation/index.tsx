@@ -11,7 +11,7 @@ preventAutoHideAsync();
 
 const Navigator = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     async function prepare() {

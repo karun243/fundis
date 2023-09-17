@@ -6,18 +6,18 @@
 // 5. textVariant : string for defining the font size, font weight, and line height styling.
 // Note: if the button is not active, opacity is 40% and because we are using TouchableOpacity, the onPressIn and onPressOut animations are from the TouchableOpacity.
 
-import { TouchableOpacity } from "react-native";
-import Typography from "../Typography";
-import clsx from "clsx";
-import { TextButtonProps } from "./types";
+import {TouchableOpacity} from 'react-native';
+import Typography from '../Typography';
+import clsx from 'clsx';
+import {TextButtonProps} from './types';
 
 const TextButton = (props: TextButtonProps) => {
-  const { children, className, onPress, state = "active", textVariant } = props;
-  const disabled = state !== "active";
-  const btnStyle = clsx(className, disabled && "opacity-40");
+  const {children, classname, onPress, state = 'active', textVariant} = props;
+  const disabled = state !== 'active';
+  const btnStyle = clsx(classname, disabled && 'opacity-40');
   return (
     <TouchableOpacity onPress={onPress} disabled={disabled}>
-      <Typography variant={textVariant} className={btnStyle}>
+      <Typography variant={textVariant} classname={btnStyle}>
         {children}
       </Typography>
     </TouchableOpacity>

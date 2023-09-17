@@ -4,7 +4,9 @@ import { StatusBar } from "expo-status-bar";
 // import Button from "../../components/Button/Button";
 import { useTranslation } from "react-i18next";
 import GlobeIcon from "../../assets/icons/globe";
-import LoginForm from "../../features/LoginForm/LoginForm";
+
+import { SolidButton } from "../../components/Buttons";
+
 const LoginScreen = () => {
   const { t } = useTranslation();
   const handlePress = () => {};
@@ -20,21 +22,20 @@ const LoginScreen = () => {
       </View>
 
       {/* Login_Form */}
-      <View className="flex-1">
-        <LoginForm />
-      </View>
+      <View className="flex-1">{/* <LoginForm /> */}</View>
 
       {/* Language_Button */}
       <View className="absolute right-4 top-12">
-        {/* <Button
-          style="bg-main-light_hover rounded-full px-[10px]"
-          textStyle="py-[7px] ml-2"
-          onPress={handlePress}
-          icon={<GlobeIcon stroke="#E5893D" />}
-          iconPosition="front"
+        <SolidButton
+          textVariant="C1S"
+          onPress={() => console.warn("open language modal")}
+          classname="px-2 py-1"
+          icon={<GlobeIcon iconColor="main-normal" />}
+          bgColor="main-light-hover"
+          borderRadius="full"
         >
           {t("language.EN")}
-        </Button> */}
+        </SolidButton>
       </View>
       <StatusBar style="light" />
     </View>

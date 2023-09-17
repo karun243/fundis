@@ -1,12 +1,9 @@
-import * as React from "react";
-import Svg, { Path } from "react-native-svg";
-import { IconProps } from "./types";
-import { getStrokeColor } from "./helper";
+import * as React from 'react';
+import Svg, {Path} from 'react-native-svg';
+import {IconProps} from './types';
+import {getStrokeColor} from './helper';
 
-const AssociationIcon = ({
-  iconColor = "icon-disabled",
-  ...props
-}: IconProps) => {
+const AssociationIcon = ({iconColor = 'icon-disabled', ...props}: IconProps) => {
   const strokeColor = getStrokeColor(iconColor);
   return (
     <Svg

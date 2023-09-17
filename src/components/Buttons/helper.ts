@@ -18,19 +18,19 @@ export const getButtonColorStyle = (bgColor: ButtonColorType) => {
         case "main-light":
             return {
                 defaultBgColor: "bg-main-light",
-                pressedBgColor: "",
-                disabledBgColor: "",
-                defaultTextColor: "",
-                pressedTextColor: "",
-                disabledTextColor: "",
+                pressedBgColor: "bg-main-normal",
+                disabledBgColor: "bg-main-light opacity-75",
+                defaultTextColor: "text-main-dark-hover",
+                pressedTextColor: "text-main-dark-hover",
+                disabledTextColor: "text-main-dark-hover opacity-75",
                 defaultIconColor: "",
                 pressedIconColor: "",
-                disabledIconColor: "",
+                disabledIconColor: "opacity-75",
             };
         case "main-light-hover":
             return {
                 defaultBgColor: "bg-main-light-hover",
-                pressedBgColor: "",
+                pressedBgColor: "bg-main-light",
                 disabledBgColor: "",
                 defaultTextColor: "",
                 pressedTextColor: "",
@@ -66,14 +66,26 @@ export const getButtonColorStyle = (bgColor: ButtonColorType) => {
         case "state-error-base":
             return {
                 defaultBgColor: "bg-state-error-base",
-                pressedBgColor: "",
-                disabledBgColor: "",
-                defaultTextColor: "",
-                pressedTextColor: "",
-                disabledTextColor: "",
+                pressedBgColor: "bg-state-error-dark",
+                disabledBgColor: "bg-state-error-light",
+                defaultTextColor: "text-state-error-light",
+                pressedTextColor: "text-state-error-light",
+                disabledTextColor: "text-state-error-base opacity-50",
                 defaultIconColor: "",
                 pressedIconColor: "",
-                disabledIconColor: "",
+                disabledIconColor: "opacity-75",
+            };
+        case "white":
+            return {
+                defaultBgColor: "bg-white",
+                pressedBgColor: "bg-main-normal",
+                disabledBgColor: "",
+                defaultTextColor: "text-main-normal",
+                pressedTextColor: "text-white",
+                disabledTextColor: "text-main-normal opacity-50",
+                defaultIconColor: "",
+                pressedIconColor: "",
+                disabledIconColor: "opacity-75",
             };
         default:
             return {
