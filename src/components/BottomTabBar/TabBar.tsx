@@ -7,6 +7,7 @@ import {
   ProfileIcon,
 } from "../../assets/icons";
 import ScanBtn from "../../assets/icons/scanbtn";
+import Typography from "../Typography";
 
 const { width } = Dimensions.get("window");
 const TAB_HEIGHT = 80;
@@ -19,80 +20,37 @@ const TabBar = ({ state, descriptors, navigation }) => {
         <View className="flex-row h-full items-stretch space-x-1">
           {state.routes.map((route, index) => {
             const { options } = descriptors[route.key];
-
             const isFocused = state.index === index;
-
             const onPress = () => {
               const event = navigation.emit({
                 type: "tabPress",
                 target: route.key,
                 canPreventDefault: true,
               });
-
               if (!isFocused && !event.defaultPrevented) {
                 navigation.navigate({ name: route.name, merge: true });
               }
             };
-
             const onLongPress = () => {
               navigation.emit({
                 type: "tabLongPress",
                 target: route.key,
               });
             };
-
             const ICONS = [
-              <View className="items-center">
-                <HomeIcon
-                  iconColor={isFocused ? "main-normal" : "icon-default"}
-                />
-                <Text
-                  className={
-                    isFocused ? "text-main-normal" : "text-icon-default"
-                  }
-                >
-                  Home
-                </Text>
-              </View>,
-              <View className="items-center">
-                <AssociationIcon
-                  iconColor={isFocused ? "main-normal" : "icon-default"}
-                />
-                <Text
-                  className={
-                    isFocused ? "text-main-normal" : "text-icon-default"
-                  }
-                >
-                  Association
-                </Text>
-              </View>,
-              <View className="-translate-y-14">
-                <ScanBtn />
-              </View>,
-              <View className="items-center">
-                <HeartIcon
-                  iconColor={isFocused ? "main-normal" : "icon-default"}
-                />
-                <Text
-                  className={
-                    isFocused ? "text-main-normal" : "text-icon-default"
-                  }
-                >
-                  Favorite
-                </Text>
-              </View>,
-              <View className="items-center">
-                <ProfileIcon
-                  iconColor={isFocused ? "main-normal" : "icon-default"}
-                />
-                <Text
-                  className={
-                    isFocused ? "text-main-normal" : "text-icon-default"
-                  }
-                >
-                  Profile
-                </Text>
-              </View>,
+              <HomeIcon
+                iconColor={isFocused ? "main-normal" : "icon-default"}
+              />,
+              <AssociationIcon
+                iconColor={isFocused ? "main-normal" : "icon-default"}
+              />,
+              <ScanBtn />,
+              <HeartIcon
+                iconColor={isFocused ? "main-normal" : "icon-default"}
+              />,
+              <ProfileIcon
+                iconColor={isFocused ? "main-normal" : "icon-default"}
+              />,
             ];
 
             return (
@@ -103,9 +61,22 @@ const TabBar = ({ state, descriptors, navigation }) => {
                 testID={options.tabBarTestID}
                 onPress={onPress}
                 onLongPress={onLongPress}
-                className={`flex-1 items-center justify-center`}
+                className={`flex-1 items-center justify-center ${
+                  index === 2 && "-translate-y-14"
+                }`}
+                key={route.key}
               >
                 {ICONS[index]}
+                {route.name !== "Scan" ? (
+                  <Typography
+                    variant="C1S"
+                    classname={
+                      isFocused ? "text-main-normal" : "text-icon-default"
+                    }
+                  >
+                    {route.name}
+                  </Typography>
+                ) : null}
               </Pressable>
             );
           })}
@@ -132,3 +103,6 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
 });
+
+// check if the icon components need to be momoized...
+// check if the scan button need to be modified based on its focus state...

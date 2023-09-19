@@ -18,7 +18,7 @@ import LogoutConfirmationModal from "../../components/Modals/LogoutConfirmationM
 import SelectLanguageModal from "../../components/Modals/SelectLanguageModal";
 import Typography from "../../components/Typography";
 import Avatar from "../../components/Avatar";
-import { SolidButton } from "../../components/Buttons";
+import { SolidButton, TextButton } from "../../components/Buttons";
 import SwitchButton from "../../components/switchButton";
 import { LanguageBtn } from "../../components/languageBtn";
 
@@ -150,9 +150,17 @@ const ProfileScreen = () => {
                     {item.second}
                   </Typography>
                 </View>
-                <Typography variant="C1B" classname="text-main-normal">
+                <TextButton
+                  classname="text-main-normal"
+                  state="active"
+                  onPress={() => console.log(`pressed ${item.second}`)}
+                  textVariant="C1B"
+                >
                   {item.third}
-                </Typography>
+                </TextButton>
+                {/* <Typography variant="C1B" classname="text-main-normal">
+                  {item.third}
+                </Typography> */}
               </View>
             );
           })}
