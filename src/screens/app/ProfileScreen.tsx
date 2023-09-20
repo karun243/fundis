@@ -200,7 +200,8 @@ const ProfileScreen = () => {
         >
           Logout
         </SolidButton>
-        <StatusBar backgroundColor="#F7F7F7" />
+        {/* <StatusBar backgroundColor="#F7F7F7" /> */}
+        <StatusBar style="auto" translucent backgroundColor="transparent" />
       </ScrollView>
     </SafeAreaView>
   );

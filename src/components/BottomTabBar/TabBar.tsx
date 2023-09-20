@@ -1,12 +1,12 @@
-import { View, Text, StyleSheet, Dimensions, Pressable } from "react-native";
+import { View, StyleSheet, Dimensions, Pressable } from "react-native";
 import TabShape from "./TabShape";
 import {
   AssociationIcon,
   HeartIcon,
   HomeIcon,
   ProfileIcon,
+  ScanBtn,
 } from "../../assets/icons";
-import ScanBtn from "../../assets/icons/scanbtn";
 import Typography from "../Typography";
 
 const { width } = Dimensions.get("window");
@@ -105,4 +105,5 @@ const styles = StyleSheet.create({
 });
 
 // check if the icon components need to be momoized...
-// check if the scan button need to be modified based on its focus state...
+// ask if the scan button need to be modified based on its focus state...
+// check issues with small screen devices...
