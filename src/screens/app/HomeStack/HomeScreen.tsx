@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CreditCard from "../../components/CreditCard";
+import CreditCard from "../../../components/CreditCard";
 import { StatusBar } from "expo-status-bar";
 
 const HomeScreen = () => {

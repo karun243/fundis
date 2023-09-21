@@ -43,6 +43,10 @@ const Carousel = (props: CarouselProps) => {
         showsHorizontalScrollIndicator={false}
         snapToInterval={SIZE}
         onScroll={scrollHandler}
+        bounces={false}
+        scrollEventThrottle={16}
+        decelerationRate="fast"
+        disableIntervalMomentum={true} // When true, the scroll view stops on the next index (in relation to scroll position at release) regardless of how fast the gesture is
       >
         {newData.map((item, index) => {
           const animatedStyle = useAnimatedStyle(() => {

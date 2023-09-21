@@ -1,6 +1,6 @@
 import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Carousel from "../../components/Carousel";
+import Carousel from "../../../components/Carousel";
 
 const data = [
   {

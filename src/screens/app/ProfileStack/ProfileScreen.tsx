@@ -3,6 +3,8 @@ import { StatusBar } from "expo-status-bar";
 import { View, ScrollView, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import {} from "../../../assets/icons";
+
 import {
   AssociationsmIcon,
   BackIcon,
@@ -13,18 +15,20 @@ import {
   SettingIcon,
   ShowIcon,
   ThemeIcon,
-} from "../../assets/icons";
-import LogoutConfirmationModal from "../../components/Modals/LogoutConfirmationModal";
-import SelectLanguageModal from "../../components/Modals/SelectLanguageModal";
-import Typography from "../../components/Typography";
-import Avatar from "../../components/Avatar";
-import { SolidButton, TextButton } from "../../components/Buttons";
-import SwitchButton from "../../components/switchButton";
-import { LanguageBtn } from "../../components/languageBtn";
+} from "../../../assets/icons";
+// import LogoutConfirmationModal from "../../../components/Modals/LogoutConfirmationModal";
+// import SelectLanguageModal from "../../../components/Modals/SelectLanguageModal";
+import Typography from "../../../components/Typography";
+import Avatar from "../../../components/Avatar";
+import { SolidButton, TextButton } from "../../../components/Buttons";
+import SwitchButton from "../../../components/switchButton";
+import { LanguageBtn } from "../../../components/languageBtn";
+import { useNavigation } from "@react-navigation/native";
 
 const ProfileScreen = () => {
-  const [logoutModal, setLogoutModal] = useState(false);
-  const [languageModal, setLanguageModal] = useState(false);
+  const navigation = useNavigation();
+  // const [logoutModal, setLogoutModal] = useState(false);
+  // const [languageModal, setLanguageModal] = useState(false);
   const [language, setLanguage] = useState("EN");
   const [notificationOn, setNotificationOn] = useState(false);
   const toggleNotification = () => {
@@ -58,7 +62,7 @@ const ProfileScreen = () => {
       second: "Language",
       third: (
         <LanguageBtn
-          onPress={() => setLanguageModal(true)}
+          onPress={() => navigation.navigate("SelectLanguage")}
           language={language}
           setLanguage={setLanguage}
         />
@@ -86,29 +90,32 @@ const ProfileScreen = () => {
       first: <AssociationsmIcon iconColor="main-normal" />,
       second: "Supported Associations",
       third: "3 Associations",
+      fourth: "Objectives",
     },
     {
       id: "2",
       first: <ConfigIcon iconColor="main-normal" />,
       second: "Objectives",
       third: "3/5 Completed",
+      fourth: "Objectives",
     },
     {
       id: "3",
       first: <CardIcon iconColor="main-normal" />,
       second: "Card Information",
       third: "1 Active Card",
+      fourth: "Objectives",
     },
   ];
 
   return (
     <SafeAreaView className="flex-1 bg-[#F7F7F7]">
-      {logoutModal && (
+      {/* {logoutModal && (
         <LogoutConfirmationModal setLogoutModal={setLogoutModal} />
       )}
       {languageModal && (
         <SelectLanguageModal setLanguageModal={setLanguageModal} />
-      )}
+      )} */}
 
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -153,7 +160,7 @@ const ProfileScreen = () => {
                 <TextButton
                   classname="text-main-normal"
                   state="active"
-                  onPress={() => console.log(`pressed ${item.second}`)}
+                  onPress={() => navigation.navigate(item.fourth)}
                   textVariant="C1B"
                 >
                   {item.third}
@@ -193,7 +200,8 @@ const ProfileScreen = () => {
         {/* logout button */}
         <SolidButton
           classname="py-4 "
-          onPress={() => setLogoutModal(true)}
+          // onPress={() => setLogoutModal(true)}
+          onPress={() => navigation.navigate("LogoutConfirmation")}
           borderRadius="md"
           bgColor="white"
           textVariant="C1B"

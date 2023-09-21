@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import "./src/locales/i18n";
 import { StatusBar } from "expo-status-bar";
 import { Provider } from "react-redux";

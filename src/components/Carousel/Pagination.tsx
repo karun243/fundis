@@ -27,7 +27,7 @@ type PaginationProps = {
 const Pagination = (props: PaginationProps) => {
   const { data, x, size } = props;
   return (
-    <View className="flex-row justify-center mt-5">
+    <View className="flex-row justify-center mt-3">
       {data.map((_, index) => {
         const animatedStyle = useAnimatedStyle(() => {
           const animatedOpacity = interpolate(
