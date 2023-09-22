@@ -90,7 +90,7 @@ const ProfileScreen = () => {
       first: <AssociationsmIcon iconColor="main-normal" />,
       second: "Supported Associations",
       third: "3 Associations",
-      fourth: "Objectives",
+      fourth: "Association",
     },
     {
       id: "2",
@@ -104,26 +104,19 @@ const ProfileScreen = () => {
       first: <CardIcon iconColor="main-normal" />,
       second: "Card Information",
       third: "1 Active Card",
-      fourth: "Objectives",
+      fourth: "CardInfo",
     },
   ];
 
   return (
     <SafeAreaView className="flex-1 bg-[#F7F7F7]">
-      {/* {logoutModal && (
-        <LogoutConfirmationModal setLogoutModal={setLogoutModal} />
-      )}
-      {languageModal && (
-        <SelectLanguageModal setLanguageModal={setLanguageModal} />
-      )} */}
-
       <ScrollView
         showsVerticalScrollIndicator={false}
         className="mx-4 flex-col"
       >
         {/* back button */}
         <TouchableOpacity
-          onPress={() => console.log("pressed")}
+          onPress={() => navigation.navigate("Home")}
           className="py-3"
         >
           <BackIcon />
@@ -142,7 +135,7 @@ const ProfileScreen = () => {
         </View>
         {/* info items */}
         <View className="bg-white rounded-xl px-4 py-2 mb-8">
-          {infoItems.map((item) => {
+          {infoItems.map((item, index) => {
             return (
               <View
                 className="flex-row items-center justify-between py-2"
@@ -177,7 +170,7 @@ const ProfileScreen = () => {
           Settings & Preferences
         </Typography>
         <View className="bg-white rounded-xl px-4 py-2 mb-5">
-          {settingItems.map((item) => {
+          {settingItems.map((item, index) => {
             return (
               <View
                 className="flex-row items-center justify-between py-2"
@@ -185,12 +178,23 @@ const ProfileScreen = () => {
               >
                 <View className="flex-row items-center">
                   {item.first}
-                  <Typography
-                    variant="C1S"
-                    classname="text-text-placeholder ml-3"
-                  >
-                    {item.second}
-                  </Typography>
+                  {index === 0 ? (
+                    <TextButton
+                      onPress={() => navigation.navigate("ChangePassword")}
+                      textVariant="C1S"
+                      state="active"
+                      classname="ml-3 text-text-placeholder"
+                    >
+                      {item.second}
+                    </TextButton>
+                  ) : (
+                    <Typography
+                      variant="C1S"
+                      classname="text-text-placeholder ml-3"
+                    >
+                      {item.second}
+                    </Typography>
+                  )}
                 </View>
                 {item.third}
               </View>
@@ -215,3 +219,6 @@ const ProfileScreen = () => {
   );
 };
 export default ProfileScreen;
+
+// todos...
+// 1. fix issue faced while navigating to Associations from profile screen

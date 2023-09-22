@@ -1,5 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  TransitionPresets,
+  createStackNavigator,
+} from "@react-navigation/stack";
 
 import TabBar from "../components/BottomTabBar/TabBar";
 
@@ -24,6 +27,7 @@ const Tabs = () => {
     <Tab.Navigator
       tabBar={(props) => <TabBar {...props} />}
       screenOptions={{ headerShown: false }}
+      // initialRouteName={route.params ? route.params.initialRoute : "Home"} // implemented using navigation.goBack()
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Association" component={AssociationScreen} />
@@ -37,22 +41,36 @@ const Tabs = () => {
 const Stack = createStackNavigator();
 const AppStack = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      {/* Home Screens */}
-      <Stack.Screen name="HomeS" component={Tabs} />
-      {/* Association Screens */}
-      <Stack.Screen name="AssociationS" component={Tabs} />
-      {/* ScanPay Screens */}
-      <Stack.Screen name="ScanPay" component={Tabs} />
-      {/* Favorite Screens */}
-      <Stack.Screen name="FavoriteS" component={Tabs} />
-      {/* Profile Screens */}
-      <Stack.Screen name="ProfileS" component={Tabs} />
-      <Stack.Screen name="AddCard" component={AddCardScreen} />
-      <Stack.Screen name="CardInfo" component={CardInfoScreen} />
-      <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} />
-      <Stack.Screen name="Objectives" component={ObjectivesScreen} />
-      <Stack.Group screenOptions={{ presentation: "transparentModal" }}>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Group
+        screenOptions={{
+          ...TransitionPresets.SlideFromRightIOS,
+        }}
+      >
+        {/* Home Screens */}
+        {/* <Stack.Screen name="HomeS" component={Tabs} /> */}
+        {/* Association Screens */}
+        {/* <Stack.Screen name="AssociationS" component={Tabs} /> */}
+        {/* ScanPay Screens */}
+        {/* <Stack.Screen name="ScanPay" component={Tabs} /> */}
+        {/* Favorite Screens */}
+        {/* <Stack.Screen name="FavoriteS" component={Tabs} /> */}
+        {/* Profile Screens */}
+        <Stack.Screen name="ProfileS" component={Tabs} />
+        <Stack.Screen name="AddCard" component={AddCardScreen} />
+        <Stack.Screen name="CardInfo" component={CardInfoScreen} />
+        <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} />
+        <Stack.Screen name="Objectives" component={ObjectivesScreen} />
+      </Stack.Group>
+      <Stack.Group
+        screenOptions={{
+          presentation: "transparentModal",
+        }}
+      >
         <Stack.Screen name="SelectLanguage" component={SelectLanguageModal} />
         <Stack.Screen
           name="LogoutConfirmation"
@@ -63,3 +81,5 @@ const AppStack = () => {
   );
 };
 export default AppStack;
+
+//todo... in the stack navigator try to remove multiple Tabs screens....

@@ -63,6 +63,11 @@ export const fs = {
         fontSize: 12,
         lineHeight: 18,
         fontWeight: "700" as const,
+    },
+    E1S: {
+        fontSize: 10,
+        lineHeight: 15,
+        fontWeight: "400" as const,
     }
 };
 
