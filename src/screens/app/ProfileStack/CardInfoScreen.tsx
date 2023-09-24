@@ -1,16 +1,24 @@
 import { useNavigation } from "@react-navigation/native";
-import { View, FlatList, TouchableOpacity, Text } from "react-native";
+import {
+  View,
+  FlatList,
+  TouchableOpacity,
+  Text,
+  ViewToken,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { BackIcon } from "../../../assets/icons";
 import Typography from "../../../components/Typography";
 import { SolidButton } from "../../../components/Buttons";
 import Carousel from "../../../components/Carousel";
 import RecentTransactionCard from "../../../components/TransactionCard";
-import AddIcon from "../../../assets/icons/add";
 import PlusIcon from "../../../assets/icons/plus";
+import { useSharedValue } from "react-native-reanimated";
 
 const CardInfoScreen = () => {
   const navigation = useNavigation();
+
+  const viewableItemsSV = useSharedValue<ViewToken[]>([]);
 
   return (
     <SafeAreaView className="flex-1 bg-[#FFFFFF]">
@@ -58,12 +66,21 @@ const CardInfoScreen = () => {
           </Typography>
           <FlatList
             data={transactionData}
+            onViewableItemsChanged={({ viewableItems }) => {
+              // console.log(viewableItems);
+              viewableItemsSV.value = viewableItems;
+            }}
             ListFooterComponent={<View className="h-3" />}
             // ListHeaderComponent={<View className="h-3" />}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
-              return <RecentTransactionCard item={item} />;
+              return (
+                <RecentTransactionCard
+                  viewableItems={viewableItemsSV}
+                  item={item}
+                />
+              );
             }}
           />
         </View>

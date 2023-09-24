@@ -20,13 +20,20 @@ import {
   ScanScreen,
   SelectLanguageModal,
 } from "../screens/app";
+// import {
+//   getFocusedRouteNameFromRoute,
+//   useIsFocused,
+// } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => {
   return (
     <Tab.Navigator
       tabBar={(props) => <TabBar {...props} />}
-      screenOptions={{ headerShown: false }}
+      screenOptions={{
+        headerShown: false,
+      }}
+
       // initialRouteName={route.params ? route.params.initialRoute : "Home"} // implemented using navigation.goBack()
     >
       <Tab.Screen name="Home" component={HomeScreen} />
@@ -83,3 +90,30 @@ const AppStack = () => {
 export default AppStack;
 
 //todo... in the stack navigator try to remove multiple Tabs screens....
+
+// const Tabs = ({ route }) => {
+//   const routeName = getFocusedRouteNameFromRoute(route) ?? "Home";
+//   const isAssociationScreen = routeName === "Association";
+//   const isFocused = useIsFocused();
+
+//   return (
+//     <Tab.Navigator
+//       tabBar={(props) => <TabBar {...props} />}
+//       screenOptions={{ headerShown: false }}
+//       tabBarStyle={{ display: isAssociationScreen ? "none" : "flex" }}
+//     >
+//       <Tab.Screen name="Home" component={HomeScreen} />
+//       <Tab.Screen
+//         name="Association"
+//         component={AssociationScreen}
+//         options={{
+//           tabBarStyle: { display: "none" },
+//           tabBarVisible: !isAssociationScreen && isFocused,
+//         }}
+//       />
+//       <Tab.Screen name="Scan" component={ScanScreen} />
+//       <Tab.Screen name="Favorite" component={FavoritesScreen} />
+//       <Tab.Screen name="Profile" component={ProfileScreen} />
+//     </Tab.Navigator>
+//   );
+// };
