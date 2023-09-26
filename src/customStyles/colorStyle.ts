@@ -50,7 +50,8 @@ export const cs = {
     "line-default": "#BABEBF",
     "icon-default": "#3E3D4B",
     "icon-disabled": "#A3A3A9",
-    "white": "#FFFFFF"
+    "white": "#FFFFFF",
+    "line-light": "#C5C6CC"
 };
 
 

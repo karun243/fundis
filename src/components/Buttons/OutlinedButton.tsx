@@ -1,13 +1,15 @@
-import {TouchableOpacity, View} from 'react-native';
-import Typography from '../Typography';
-import clsx from 'clsx';
-import {OutlinedButtonProps} from './types';
-import {getBorderRadiusStyle} from './helper';
+import { TouchableOpacity, View } from "react-native";
+import Typography from "../Typography";
+import clsx from "clsx";
+import { OutlinedButtonProps } from "./types";
+import { getBorderRadiusStyle } from "./helper";
+import { cs } from "../../customStyles/colorStyle";
 
 const OutlinedButton = (props: OutlinedButtonProps) => {
   const {
     borderColor,
     borderRadius,
+    borderThickness,
     children,
     classname,
     icon,
@@ -17,16 +19,22 @@ const OutlinedButton = (props: OutlinedButtonProps) => {
     textVariant,
   } = props;
 
-  const disabled = state !== 'active';
+  const BORDERCOLOR = cs[borderColor];
+
+  const disabled = state !== "active";
   const btnStyle = clsx(
-    `border-${borderColor}`,
-    'border-2 flex-row items-center justify-center px-4 py-1',
+    `border-[${borderThickness}px] flex-row items-center justify-center px-4 py-1`,
     classname,
     getBorderRadiusStyle(borderRadius),
-    disabled && 'opacity-40',
+    disabled && "opacity-40"
   );
   return (
-    <TouchableOpacity onPress={onPress} className={btnStyle} disabled={disabled}>
+    <TouchableOpacity
+      onPress={onPress}
+      className={btnStyle}
+      disabled={disabled}
+      style={{ borderColor: BORDERCOLOR }}
+    >
       {icon && <View className="mr-2">{icon}</View>}
       <Typography classname={textClassName} variant={textVariant}>
         {children}

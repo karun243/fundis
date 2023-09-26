@@ -22,6 +22,7 @@ export type TextButtonProps = {
 export type OutlinedButtonProps = {
     borderColor: keyof typeof cs;
     borderRadius: BorderRadiusType;
+    borderThickness: number;
     children: string;
     classname?: string;
     icon?: React.ReactNode;

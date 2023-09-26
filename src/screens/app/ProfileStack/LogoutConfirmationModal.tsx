@@ -59,6 +59,7 @@ const LogoutConfirmationModal = () => {
           </Typography>
           <View className="w-full px-1 flex-row justify-between my-2">
             <OutlinedButton
+              borderThickness={2}
               classname="flex-1 py-2"
               textVariant="C1S"
               state="active"
